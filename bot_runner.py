@@ -33,6 +33,10 @@ def run_bot():
     application.add_handler(CommandHandler("cadastrar", cadastrar))
     application.add_handler(CommandHandler("agendar", agendar))
     application.add_handler(CommandHandler("log", log))
-    asyncio.run(application.run_polling())
-if __name__ == "__main__":
-    run_bot()
+    asyncio.run(_run_bot())
+    application.run_polling()
+async def _run_bot():
+    await application.initialize()
+    await application.start_polling()
+    await application.idle()
+    await application.shutdown()
