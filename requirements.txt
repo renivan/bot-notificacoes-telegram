@@ -1,3 +1,6 @@
 python-telegram-bot==20.0
-supabase
+flask
 python-dotenv
+supabase
+requests
+beautifulsoup4
