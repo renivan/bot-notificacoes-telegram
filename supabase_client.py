@@ -1,10 +1,15 @@
 import os
 from supabase import create_client
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
 
 url = os.getenv("SUPABASE_URL")
 key = os.getenv("SUPABASE_KEY")
-supabase = create_client(url, key)
+if url and key:
+    supabase = create_client(url, key)
+else:
+    raise ValueError("SUPABASE_URL ou SUPABASE_KEY não foram definidos corretamente.")
 
 def cadastrar_usuario(user_id, username):
     supabase.table("usuarios").insert({
