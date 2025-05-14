@@ -37,6 +37,12 @@ def run_bot():
     application.run_polling()
 async def _run_bot():
     await application.initialize()
+    await application.start()
+    await application.updater.start_polling()
     await application.start_polling()
+    await application.updater.idle()
+    await application.updater.start_polling()
     await application.idle()
+    await application.stop()
+    await application.updater.stop()
     await application.shutdown()
