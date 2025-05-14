@@ -44,13 +44,15 @@ jobs:
         run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+      - name: Install dependencies
+        run: |
+         source venv/bin/activate
+         pip install -r requirements.txt
+
       - name: Run tests
         run: |
-          source venv/bin/activate
-          pytest tests/
-          # or any other test command you use
-      # Optional: Add step to run linting here (Flake8, Pylint, etc.)
-
+         source venv/bin/activate
+         pytest tests/
       - name: Run linting
         run: |
           source venv/bin/activate
