@@ -23,6 +23,12 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      
+      - name: Verify installed packages
+        run: pip list
+
+
+
 
       - name: Create and start virtual environment
         run: |
@@ -57,8 +63,10 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
-        env:
-          PIP_NO_CACHE_DIR: true
+
+      - name: isntall upgrade pip
+        run: pip install --upgrade pip
+        
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
