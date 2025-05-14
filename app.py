@@ -1,6 +1,7 @@
 from flask import Flask
 from threading import Thread
 from bot_runner import run_bot
+import os
 # from bot_runner import run_bot
 
 app = Flask(__name__)
@@ -14,3 +15,6 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
 # Inicia o bot em uma thread separada
 # para não bloquear o servidor Flask
+
+port = int(os.environ.get("PORT", 8000))
+app.run(host='0.0.0.0', port=port)
