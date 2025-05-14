@@ -7,10 +7,13 @@ load_dotenv()
 url = os.getenv("SUPABASE_URL")
 key = os.getenv("SUPABASE_KEY")
 supabase = create_client(url, key)
-if url and key:
-    supabase = create_client(url, key)
-else:
-    raise ValueError("SUPABASE_URL ou SUPABASE_KEY não foram definidos corretamente.")
+
+def get_usuario(user_id):
+    response = supabase.table("usuarios").select("*").eq("user_id", user_id).execute()
+    if response.data:
+        return response.data[0]
+    else:
+        return None
 
 def cadastrar_usuario(user_id, username):
     supabase.table("usuarios").insert({
