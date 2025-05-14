@@ -147,8 +147,8 @@ jobs:
       - name: List ZIP contents
         run: unzip -l release.zip/
 
-      - name: Upload artifact for deployment
-        uses: actions/upload-artifact@v4
+      #- name: Upload artifact for deployment
+      #  uses: actions/upload-artifact@v4
 
   # Deploy job
   # This job will be triggered after the build job is successful
