@@ -1,6 +1,17 @@
 import os
 from telegram.ext import Application, CommandHandler
 from supabase_client import log_admin_access, salvar_agendamento, cadastrar_usuario
+from telegram import Update
+from telegram.ext import ContextTypes
+from dotenv import load_dotenv
+# Carregar variáveis de ambiente do arquivo .env
+load_dotenv()
+# Importar as funções necessárias do supabase_client
+# e do dotenv
+# Configuração do bot
+# Certifique-se de que o arquivo .env contém TELEGRAM_TOKEN
+# e que o token do bot do Telegram está correto
+
 import asyncio
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
@@ -33,9 +44,9 @@ def run_bot():
     application.add_handler(CommandHandler("cadastrar", cadastrar))
     application.add_handler(CommandHandler("agendar", agendar))
     application.add_handler(CommandHandler("log", log))
-    asyncio.run(_run_bot())
-    application.run_polling()
-async def _run_bot():
+    asyncio.run(_run_bot(application))
+
+async def _run_bot(application):
     await application.initialize()
     await application.start()
     await application.updater.start_polling()

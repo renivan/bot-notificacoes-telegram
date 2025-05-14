@@ -16,5 +16,6 @@ if __name__ == '__main__':
 # Inicia o bot em uma thread separada
 # para não bloquear o servidor Flask
 
+# Inicia o servidor Flask
 port = int(os.environ.get("PORT", 8000))
 app.run(host='0.0.0.0', port=port)
