@@ -28,6 +28,17 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
+          echo "Virtual environment created and activated."
+          echo "PATH: $PATH"
+          echo "VIRTUAL_ENV: $VIRTUAL_ENV"
+          echo "PYTHONPATH: $PYTHONPATH"
+          echo "PYTHONHOME: $PYTHONHOME"
+          echo "PYTHONSTARTUP: $PYTHONSTARTUP"
+          echo "PYTHONOPTIMIZE: $PYTHONOPTIMIZE"
+          echo "PYTHONIOENCODING: $PYTHONIOENCODING"
+          echo "PYTHONUNBUFFERED: $PYTHONUNBUFFERED"
+          echo "PYTHONBREAKPOINT: $PYTHONBREAKPOINT"
+          echo "PYTHONWARNINGS: $PYTHONWARNINGS"
       
       - name: Install dependencies
         run: pip install -r requirements.txt
