@@ -4,3 +4,9 @@ python-dotenv
 supabase
 requests
 beautifulsoup4
+from threading import Thread
+Thread(target=run_bot).start()
+from dotenv import load_dotenv
+load_dotenv()
+import os
+import requests
