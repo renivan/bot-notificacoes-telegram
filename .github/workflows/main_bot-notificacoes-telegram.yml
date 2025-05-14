@@ -147,6 +147,15 @@ jobs:
       - name: List ZIP contents
         run: unzip -l release.zip/
 
+
+      - name: Upload artifact for deployment jobs
+        uses: actions/upload-artifact@v4
+        with:
+         name: python-app
+         path: |
+          release.zip
+          !venv/
+
       #- name: Upload artifact for deployment
       #  uses: actions/upload-artifact@v4
 
