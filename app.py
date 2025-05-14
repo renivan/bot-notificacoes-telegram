@@ -1,7 +1,11 @@
 from flask import Flask
 from threading import Thread
 from bot_runner import run_bot
+from dotenv import load_dotenv
 import os
+import requests
+
+load_dotenv('.env')
 # from bot_runner import run_bot
 
 app = Flask(__name__)
