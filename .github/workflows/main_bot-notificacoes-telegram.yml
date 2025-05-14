@@ -28,6 +28,32 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
+          echo "VIRTUAL_ENV=$(pwd)/venv" >> $GITHUB_ENV
+          echo "PATH=$(pwd)/venv/bin:$PATH" >> $GITHUB_ENV
+          echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+          echo "PYTHONUNBUFFERED=1" >> $GITHUB_ENV
+          echo "PYTHONIOENCODING=utf-8" >> $GITHUB_ENV
+          echo "PYTHONFAULTHANDLER=1" >> $GITHUB_ENV
+          echo "PYTHONHASHSEED=random" >> $GITHUB_ENV
+          echo "PYTHONOPTIMIZE=1" >> $GITHUB_ENV
+          echo "PYTHONPYCACHEPREFIX=$(pwd)/.pycache" >> $GITHUB_ENV
+
+      - name: Check Python version
+        run: |
+          python --version
+          pip --version
+          pip list
+          python -c "import sys; print(sys.executable)"
+          python -c "import sys; print(sys.path)"
+          python -c "import sys; print(sys.version)"
+          python -c "import sys; print(sys.platform)"
+          python -c "import sys; print(sys.prefix)"
+          python -c "import sys; print(sys.base_prefix)"
+          python -c "import sys; print(sys.base_exec_prefix)"
+          python -c "import sys; print(sys.exec_prefix)"
+          python -c "import sys; print(sys.executable)"
+          python -c "import sys; print(sys.path)"
+          
       
       - name: Install dependencies
         run: pip install -r requirements.txt
