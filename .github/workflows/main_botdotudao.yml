@@ -38,9 +38,10 @@ jobs:
         run: zip -r release.zip . -x "venv/*" "*.git/*" ".github/*" "tests/*"
 
       - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         id: upload-artifact
         with:
+          # The name of the artifact to be uploaded
           name: python-app
           path: |
             release.zip
