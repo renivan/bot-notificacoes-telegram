@@ -62,11 +62,19 @@ jobs:
           
       
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+         source venv/bin/activate
+         pip install -r requirements.txt
 
-      - name: isntall upgrade pip
-        run: pip install --upgrade pip
-        
+      - name: run tests
+        run: |
+          source venv/bin/activate
+          pytest tests/
+          # Uncomment and modify the line above to run your tests
+          # Ensure you have pytest or any other test framework installed in requirements.txt
+          # For Django, you can use: python manage.py test
+          # For Flask, you can use: flask test
+
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
